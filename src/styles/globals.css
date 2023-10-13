@@ -1,0 +1,49 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    src: local('Roboto'), url('/fonts/Inter-VariableFont.ttf') format('truetype');
+}
+/*html {*/
+/*    font-size: 62.5%; !* 62.5% of 16px = 10px *!*/
+/*}*/
+html{
+    height: 100vh;
+}
+body {
+    font-family: 'Avo', sans-serif;
+    /* Các CSS rules khác cho body */
+}
+/*input::-ms-reveal,*/
+/*input::-ms-clear {*/
+/*    display: none;*/
+/*}*/
+/*a {*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*a:hover {*/
+
+/*  text-decoration: none;*/
+/*}*/
+
+.header {
+    color: snow;
+    font-size: 50px;
+}
+
+.title {
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+.content {
+    color: darkslategrey;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
