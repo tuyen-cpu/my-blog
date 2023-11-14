@@ -61,7 +61,7 @@ export const handleError = (err: any) => {
 // }
 
 
-export const popupCenter = (url: string, title: string, width:number = 500, height:number = 500, callback:any) => {
+export const popupCenter = (url: string, title: string, width:number = 500, height:number = 500, callbackWhenClose:any,isSuccess:()=>boolean) => {
   const dualScreenLeft = window.screenLeft ?? window.screenX
   const dualScreenTop = window.screenTop ?? window.screenY
 
@@ -80,8 +80,11 @@ export const popupCenter = (url: string, title: string, width:number = 500, heig
     `width=${width / systemZoom},height=${height / systemZoom},top=${top},left=${left}`
   )
   const popupTick = setInterval(function() {
+    if(isSuccess()){
+      newWindow?.close();
+    }
     if (newWindow?.closed) {
-      callback()
+      callbackWhenClose()
       clearInterval(popupTick);
     }
   }, 500);

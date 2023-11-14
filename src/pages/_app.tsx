@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
             },
           }}
         />
-          <DarkModeButton mode={mode} onThemeChange={handleThemeChange} />
+          {/*<DarkModeButton mode={mode} onThemeChange={handleThemeChange} />*/}
           <Component {...pageProps} />
       </ThemeProvider>
     </>

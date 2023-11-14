@@ -50,8 +50,6 @@ export default function Login() {
     resolver: yupResolver(schema),
     mode: 'all',
   })
-  const [loginSuccess, setIsLoginSuccess] = useState(false)
-  const [githubPopup, setGithubPopup] = useState<boolean>(false)
   const onSubmit = async (requestData: SignInRequest) => {
     setIsLoading(true)
     try {
@@ -68,14 +66,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-
-    console.log(githubPopup)
-    const user = getLocalStorage("user") as UserLogin;
-    // if(githubPopup && user && user.accessToken){
-    //   console.log(githubPopup)
-    //   githubPopup.close()
-    // }
-  }, [githubPopup])
+  }, [])
 
   const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -88,22 +79,15 @@ export default function Login() {
       ()=>{
         const user = getLocalStorage("user") as UserLogin;
         if(user) {
-          router.push("/auth/succes").then((e)=>console.log(e))
+          router.push("/").then((e)=>console.log(e))
         }else{
           alert("authen failed")
         }
+      },():boolean=>{
+        const user = getLocalStorage("user") as UserLogin;
+        return !!user
       }
       )
-
-    setGithubPopup(!!popup?.closed);
-    console.log(githubPopup)
-    // setTimeout(()=>{
-    //   const user = getLocalStorage("user") as UserLogin;
-    //   if(user){
-    //     popup?.close()
-    //   }
-    //
-    // },3000)
   }
 
   return (

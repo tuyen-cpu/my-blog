@@ -7,7 +7,7 @@ const URL = 'http://localhost:8080'
 axios.interceptors.request.use(config => {
   const userLocalStorage = (getLocalStorage('user') as UserLogin )
   if(userLocalStorage && userLocalStorage.accessToken){
-    config.headers.Authorization = userLocalStorage.accessToken
+    config.headers.Authorization = `Bearer ${userLocalStorage.accessToken}`
   }
   return config;
 });
