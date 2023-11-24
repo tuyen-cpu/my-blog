@@ -1,48 +1,48 @@
 import { createTheme, PaletteOptions } from '@mui/material/styles'
 import { PaletteMode } from '@mui/material'
 import { ThemeOptions } from '@mui/material/styles/createTheme'
+import { common, green, lime, purple, red } from '@mui/material/colors'
 
+interface PaletteOptionsWithoutMode extends Omit<PaletteOptions, 'mode'> {
 
-const darkTheme: any = {
+}
+const darkTheme: PaletteOptionsWithoutMode = {
   // divider: 'rgba(60,65,71,0.8)',
 
   primary: {
-    main: '#56b3de',
+    main:common.white
   },
+  secondary: green,
   background: {
-    paper: '#222222',
-    // default: 'rgb(25, 30, 36,1)',
     default:'rgba(34,34,34,0.99)',
-    google: '#4285F4',
   },
-  text: {
-    //  primary: '#ffffff',
-    // secondary:'#fff'
-    custom:'#fff'
-  },
+  // text: {
+  //    primary: '#ff6a00',
+  // },
   action: {
     // disabledBackground: '#56b3de',
     // disabled: '#fff',
   },
 }
-const lightTheme = {
+const lightTheme:PaletteOptionsWithoutMode = {
+  primary: {
+    main:common.black
+  },
+  secondary: lime,
   // divider: '#3c4147',
   background: {
-    paper: '#fff',
-    default: '#f4fafd',
-    // secondary: '#13161b',
-    // input: '#1c1f24',
-    google: '#4285F4',
+    default: '#ffffff',
   },
-  text: {
-    // primary: '#ffffff',
-    // secondary:'#fff'
-    custom:'#fff'
-  },
+  // text: {
+  //   // default:'#ff0000',
+  //   primary: '#ff0000',
+  //   secondary:'#ff0000',
+  //   // custom:'#ff0000'
+  // },
   action: {
     // disabledBackground: '#0082c9',
     // disabled: '#fff',
-    hover:'green'
+    // hover:'green'
   },
 }
 

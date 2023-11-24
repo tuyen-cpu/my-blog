@@ -8,9 +8,12 @@ import { createTheme, styled } from '@mui/material/styles'
 import Switch from '@mui/material/Switch'
 import DarkModeButton from '@/components/Button/DarkModeButton'
 import { useMemo, useState } from 'react'
+import { Header } from '@/components/Common/Header'
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [mode, setMode] = useState<PaletteMode>('light')
+  pageProps.appTuyen = "appTuyen"
+  console.log("app",pageProps)
+  const [mode, setMode] = useState<PaletteMode>('dark')
   // const [darkMode, setDarkMode] = useState(false);
 
   const handleThemeChange = useMemo(() => {
@@ -35,8 +38,9 @@ export default function App({ Component, pageProps }: AppProps) {
             },
           }}
         />
+        <Header mode={mode} handleThemeChange={handleThemeChange}></Header>
           {/*<DarkModeButton mode={mode} onThemeChange={handleThemeChange} />*/}
-          <Component {...pageProps} />
+          <Component {...pageProps} mode={mode} handleThemeChange={handleThemeChange} />
       </ThemeProvider>
     </>
   )
